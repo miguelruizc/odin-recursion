@@ -31,17 +31,17 @@ function fibsR(n, array) {
 	// from the Fibonacci sequence. Using an example input of 8, this function
 	// should return the array [0, 1, 1, 2, 3, 5, 8, 13].
 	if (n === 1) {
-		if(array.length < 2) array.unshift(0);
+		if (array.length < 2) array.unshift(0);
 		return 0;
 	}
 
 	if (n === 2) {
-		if(array.length < 2) array.push(1);
+		if (array.length < 2) array.push(1);
 		return 1;
 	}
 
 	let nthFib = fibsR(n - 1, array) + fibsR(n - 2, array);
-	if(array.length < n) array.push(nthFib);
+	if (array.length < n) array.push(nthFib);
 
 	return nthFib;
 }

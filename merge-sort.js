@@ -4,14 +4,14 @@
 // merge the two halves together
 
 function mergeSort(array) {
-    // Base case (1 element array)
+	// Base case (1 element array)
 	if (array.length === 1) {
 		return array;
 	}
 
 	// Rercursive case (more than 1 element -> split, mergeSort)
 	if (array.length > 1) {
-        //SPLIT IN HALF
+		//SPLIT IN HALF
 		let midPoint = array.length / 2;
 		let left = array.slice(0, midPoint);
 		let right = array.slice(midPoint, array.length);
@@ -24,38 +24,44 @@ function mergeSort(array) {
 
 		// MERGE
 		let merged = [];
-        
-        let indexL = 0;
-        let indexR = 0;
-        let isMerged = false;
 
-        //Compare left elements to right elements
-        while(!isMerged) {
+		let indexL = 0;
+		let indexR = 0;
+		let isMerged = false;
+
+		//Compare left elements to right elements
+		while (!isMerged) {
 			// If equal:
-			if(left[indexL] === right[indexR]) {
+			if (left[indexL] === right[indexR]) {
 				merged.push(left[indexL]);
 				merged.push(right[indexR]);
 				indexL++;
 				indexR++;
 			}
 			// If left smaller (or alone)
-			else if(left[indexL] < right[indexR] || right[indexR] === undefined) {
+			else if (
+				left[indexL] < right[indexR] ||
+				right[indexR] === undefined
+			) {
 				merged.push(left[indexL]);
 				indexL++;
 			}
 			// If right smaller (or alone)
-			else if (right[indexR] < left[indexL] || left[indexL] === undefined) {
+			else if (
+				right[indexR] < left[indexL] ||
+				left[indexL] === undefined
+			) {
 				merged.push(right[indexR]);
 				indexR++;
 			}
 
 			// Check if merge is complete
-			if(left[indexL] === undefined && right[indexR] === undefined)
+			if (left[indexL] === undefined && right[indexR] === undefined)
 				isMerged = true;
-        }
+		}
 
-        // Return sorted array
-        return merged;
+		// Return sorted array
+		return merged;
 	}
 }
 
